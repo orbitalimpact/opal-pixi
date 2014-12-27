@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version     = Opal::PIXI::VERSION
   s.authors     = [ 'George D. Plymale II', 'Gabriel Rios' ]
   s.email       = [ 'gabrielfalcaorios@gmail.com']
-  s.homepage    = [ 'http://github.com/orbitalimpact/opal-pixi']
+  s.homepage    = 'http://github.com/orbitalimpact/opal-pixi'
   s.summary     = [ 'Pixi wrapper for opal' ]
   s.description = [ 'Pixi wrapper for opal' ]
 
