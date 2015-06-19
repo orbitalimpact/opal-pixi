@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/opal/opal-browser.git
+  revision: 7b9a59fa6436caedf1c4433386a76fd879d095e4
+  specs:
+    opal-browser (0.2.0.beta1)
+      opal
+      paggio
+
 PATH
   remote: ..
   specs:
@@ -13,6 +21,7 @@ GEM
     opal (0.6.3)
       source_map
       sprockets
+    paggio (0.2.4)
     rack (1.6.0)
     source_map (3.0.1)
       json
@@ -27,4 +36,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  opal-browser!
   opal-pixi!
