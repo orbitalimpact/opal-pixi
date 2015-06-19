@@ -4,12 +4,16 @@ module PIXI
     #{self}._proto = window.PIXI.WebGLRenderer.prototype, def = #{self}._proto;
             window.PIXI.WebGLRenderer.prototype._klass = #{self};
     }
-    def self.new(width, height)
-      `new window.PIXI.WebGLRenderer(width, height)`
+    def self.new(width, height, options)
+      %x{new window.PIXI.WebGLRenderer(width, height, { backgroundColor : #{options[:background_color]} })}
     end
 
-    def render(stage)
-      `self.render(stage)`
+    def render(object)
+      `self.render(object)`
+    end
+
+    def destroy(removeView)
+      `self.destroy(removeView)`
     end
 
     def view
