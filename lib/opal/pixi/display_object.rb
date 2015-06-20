@@ -1,16 +1,17 @@
 module PIXI
-  module DisplayObject
+  class DisplayObject
+
+    %x{
+    #{self}._proto = window.PIXI.DisplayObject.prototype, def = #{self}._proto;
+            window.PIXI.DisplayObject.prototype._klass = #{self};
+    }
 
     def position
       `self.position`
     end
 
-    def scale
-      `self.scale`
-    end
-
-    def pivot
-      `self.pivot`
+    def position=(point)
+      `self.position = point`
     end
 
   end
