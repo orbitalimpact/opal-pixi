@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'opal-pixi', path: '..'
+gem 'opal-pixi', path: '../' #, github: 'globalkeith/opal-pixi'
 gem 'opal-browser', github: 'opal/opal-browser'
