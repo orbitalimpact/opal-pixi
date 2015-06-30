@@ -7,7 +7,7 @@ GIT
       paggio
 
 PATH
-  remote: ..
+  remote: ../
   specs:
     opal-pixi (0.0.1)
       opal (~> 0.6.0)
@@ -16,13 +16,13 @@ GEM
   remote: https://rubygems.org/
   specs:
     hike (1.2.3)
-    json (1.8.1)
-    multi_json (1.10.1)
+    json (1.8.3)
+    multi_json (1.11.1)
     opal (0.6.3)
       source_map
       sprockets
     paggio (0.2.4)
-    rack (1.6.0)
+    rack (1.6.4)
     source_map (3.0.1)
       json
     sprockets (2.12.3)

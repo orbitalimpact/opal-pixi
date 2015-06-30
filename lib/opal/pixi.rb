@@ -1,5 +1,5 @@
 if RUBY_ENGINE == 'opal'
-  require 'opal/pixi/stage'
+  require 'opal/pixi/base'
   require 'opal/pixi/container'
   require 'opal/pixi/display_object'
   require 'opal/pixi/web_gl_renderer'

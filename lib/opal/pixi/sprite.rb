@@ -1,26 +1,21 @@
+require './base'
+
 module PIXI
-  class Sprite
+  class Sprite < PIXI::DisplayObject
+    # include PIXI::Base
+    # name = "window.#{self.name.split('::').join('.')}"
+    # code = "self._proto = #{name}.prototype, def = self._proto; #{name}.prototype._klass = self"
+    # # %x{ alert(code) }
+    # %x{ eval(code) }
+
     %x{
-    #{self}._proto = window.PIXI.Sprite.prototype, def = #{self}._proto;
-            window.PIXI.Sprite.prototype._klass = #{self};
+      self._proto = window.PIXI.Sprite.prototype, def = self._proto;
+              window.PIXI.Sprite.prototype._klass = self;
     }
+
     def self.new(texture)
       `new window.PIXI.Sprite(texture)`
     end
-    def anchor
-      Point.new `#{self}.anchor.x`,`#{self}.anchor.y`
-    end
-    def rotation
-      `self.rotation`
-    end
-    def rotation=(r)
-      `self.rotation = r`
-    end
-    def anchor=(a)
-      `self.anchor = a`
-    end
-    def position=(p)
-      `self.position = p`
-    end
+
   end
 end
