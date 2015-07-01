@@ -1,0 +1,13 @@
+module PIXI
+  class DisplayObject
+    include Native
+
+    alias_native :x
+    alias_native :x=
+    alias_native :y
+    alias_native :y=
+    alias_native :width
+    alias_native :height
+
+  end
+end
