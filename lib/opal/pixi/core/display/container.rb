@@ -2,14 +2,13 @@
 # require('./DisplayObject'),
 # require('../textures/RenderTexture'),
 # new math.Matrix();
+require 'opal/pixi/core/display/display_object'
 
 module PIXI
   class Container < DisplayObject
     include Native
-    def initialize(arg_hash = {}, &block)
-      # DisplayObject.call(this);
-      # this.children = [];
 
+    def initialize(arg_hash = {}, &block)
       @native = %x{
         new PIXI.Container()
       }
@@ -17,7 +16,7 @@ module PIXI
 
     alias_native :width
     alias_native :height
-    alias_native :children
+    alias_native :add_child, :addChild
 
   end
 end

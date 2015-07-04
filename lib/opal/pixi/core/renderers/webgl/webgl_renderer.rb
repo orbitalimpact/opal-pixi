@@ -1,24 +1,26 @@
 module PIXI
   class WebGLRenderer
     include Native
+
     #def initialize(arg_hash = {}, &block)
     def initialize(width, height, options)
 
-      #width       = arg_hash.fetch(:width) { 800 }
-      #height      = arg_hash.fetch(:height) { 600 }
+      %{
+        var options = {
+          backgroundColor: #{options[:background_color]}
+        }
+      }
 
       @native = %x{
-        new PIXI.WebGLRenderer(width, height, options)
+        new PIXI.WebGLRenderer(width, height, { backgroundColor : 0x1099bb })
       }
     end
 
+    alias_native :view
     alias_native :width
     alias_native :height
     alias_native :children
-
-    def background_color=(color)
-      `#@native.backgroundColor = color`
-    end
+    alias_native :render
 
   end
 end
