@@ -30,5 +30,12 @@ module PIXI
       `self.width`
     end
 
+    def interactive=(i)
+      `self.interactive = i`
+    end
+
+    def on(event, &handler)
+      `self.on(#{event}, #{handler.to_n})`
+    end
   end
 end
