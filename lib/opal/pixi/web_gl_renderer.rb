@@ -4,8 +4,8 @@ module PIXI
     #{self}._proto = window.PIXI.WebGLRenderer.prototype, def = #{self}._proto;
             window.PIXI.WebGLRenderer.prototype._klass = #{self};
     }
-    def self.new(width, height)
-      `new window.PIXI.WebGLRenderer(width, height)`
+    def self.new(width, height, options)
+      `new window.PIXI.WebGLRenderer(width, height , #{ options.to_n })`
     end
 
     def render(stage)
