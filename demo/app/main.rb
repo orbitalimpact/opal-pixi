@@ -23,7 +23,7 @@ class Game
 
     stage.add_child(bunny)
 
-    text = PIXI::Text.new("Sample text")
+    text = PIXI::Text.new("Sample text ")
     text.position = PIXI::Point.new( 50 , 50 )
     stage.add_child text
     counter = 1
@@ -33,7 +33,7 @@ class Game
       text.position.add( 5 , 0)
       if( text.position.x + text.width > renderer.width )
         text.position.set( 50 , 50 )
-        text.text = text.text + counter.to_s
+        text.text = "Sample text " + counter.to_s
         counter += 1
       end
       renderer.render stage
