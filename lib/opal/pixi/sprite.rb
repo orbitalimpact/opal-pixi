@@ -1,14 +1,13 @@
+
 module PIXI
-  class Sprite
-    %x{
-    #{self}._proto = window.PIXI.Sprite.prototype, def = #{self}._proto;
-            window.PIXI.Sprite.prototype._klass = #{self};
-    }
+  class Sprite < `PIXI.Sprite`
+
+
     def self.new(texture)
-      `new window.PIXI.Sprite(texture)`
+      `new PIXI.Sprite(texture)`
     end
     def anchor
-      Point.new `#{self}.anchor.x`,`#{self}.anchor.y`
+      Point.new `self.anchor.x`,`self.anchor.y`
     end
     def rotation
       `self.rotation`

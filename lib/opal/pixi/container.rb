@@ -1,18 +1,13 @@
 
 module PIXI
-  class Container
-
-    %x{
-    #{self}._proto = window.PIXI.Container.prototype, def = #{self}._proto;
-            window.PIXI.Container.prototype._klass = #{self};
-    }
+  class Container < `PIXI.Container`
 
     def self.new()
-      `new window.PIXI.Container()`
+      `new PIXI.Container()`
     end
 
     def add_child(child)
-      `#{self}.addChild(child)`
+      `self.addChild(#{child})`
     end
 
   end

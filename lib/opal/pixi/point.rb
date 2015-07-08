@@ -1,12 +1,9 @@
 
 module PIXI
-  class Point
-    %x{
-    #{self}._proto = window.PIXI.Point.prototype, def = #{self}._proto;
-            window.PIXI.Point.prototype._klass = #{self};
-    }
+  class Point < `PIXI.Point`
+
     def self.new(text ,options )
-      `new window.PIXI.Point(text, #{ options.to_n })`
+      `new PIXI.Point(text, #{ options.to_n })`
     end
 
     def set(x,y)

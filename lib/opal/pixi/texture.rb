@@ -1,11 +1,8 @@
 module PIXI
-  class Texture
-    %x{
-    #{self}._proto = window.PIXI.Texture.prototype, def = #{self}._proto;
-            window.PIXI.Texture.prototype._klass = #{self};
-    }
+  class Texture <  `PIXI.Texture`
+
     def self.from_image(name)
-      `window.PIXI.Texture.fromImage(name)`
+      `PIXI.Texture.fromImage(name)`
     end
   end
 end
