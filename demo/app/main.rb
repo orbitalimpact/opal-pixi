@@ -16,15 +16,15 @@ class Game
     body.appendChild renderer.view
 
 
-    texture = PIXI::Texture.from_image "bunny.png"
-    bunny = PIXI::Sprite.new texture
-    bunny.anchor = PIXI::Point.new(0.5, 0.5)
+    texture        = PIXI::Texture.from_image "bunny.png"
+    bunny          = PIXI::Sprite.new texture
+    bunny.anchor   = PIXI::Point.new(0.5, 0.5)
     bunny.position = PIXI::Point.new(width / 2, height / 2)
 
-    bunny.interactive = true
-    bunny.on('mousedown') do
-      puts "mouse down"
-    end
+    # bunny.interactive = true
+    # bunny.on('mousedown') do
+    #   puts "mouse down"
+    # end
 
     stage.add_child(bunny)
 
@@ -35,7 +35,7 @@ class Game
     animate = Proc.new do
       `requestAnimationFrame(animate)`
       bunny.rotation += 0.1
-      text.position.add( 5 , 0)
+      text.position.x += 5
       if( text.position.x + text.width > renderer.width )
         text.position.set( 50 , 50 )
         text.text = "Sample text " + counter.to_s

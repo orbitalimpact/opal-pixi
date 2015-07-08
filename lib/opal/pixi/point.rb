@@ -1,24 +1,24 @@
+require 'native'
 
 module PIXI
-  class Point < `PIXI.Point`
+  class Point
+    include Native
 
-    def self.new(text ,options )
-      `new PIXI.Point(text, #{ options.to_n })`
-    end
-
-    def set(x,y)
-      `self.set(x,y)`
-    end
-
-    def add(x1,y1)
-      `self.set( self.x + x1 , self.y + y1 )`
+    def self.new(x_or_native , y)
+      if native?(x_or_native)
+        super(x_or_native)
+      else
+        super(`new PIXI.Point(x_or_native, y)`)
+      end
     end
 
-    def x
-      `self.x`
+    alias_native :set
+    alias_native :x
+    alias_native :y
+
+    def x=(_x)
+      `#@native.x = _x`
     end
-    def y
-      `self.y`
-    end
+
   end
 end

@@ -1,25 +1,19 @@
+require 'native'
 module PIXI
-  class WebGLRenderer  < `PIXI.WebGLRenderer`
+  class WebGLRenderer  #< `PIXI.WebGLRenderer`
+    include Native
 
-    def self.new(width, height, options)
-      `new PIXI.WebGLRenderer(width, height , #{ options.to_n })`
+    def initialize(w_or_native, height, options)
+      if native?(w_or_native)
+        super(w_or_native)
+      else
+        super(`new PIXI.WebGLRenderer(w_or_native, height , #{ options.to_n })`)
+      end
     end
 
-    def render(stage)
-      `self.render(stage)`
-    end
-
-    def view
-      `self.view`
-    end
-
-    def height
-      `self.height`
-    end
-
-    def width
-      `self.width`
-    end
+    alias_native :render
+    alias_native :view
+    alias_native :width
 
   end
 end
