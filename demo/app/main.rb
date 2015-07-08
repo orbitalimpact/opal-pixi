@@ -4,7 +4,7 @@ require 'native'
 
 class Game
   def initialize
-    stage = PIXI::Stage.new 0x66FF99
+    stage = PIXI::Container.new
     renderer = PIXI::WebGLRenderer.new 400, 300
 
     # opal-jquery would clean this up
@@ -20,10 +20,10 @@ class Game
     stage.add_child(bunny)
 
     animate = Proc.new do
-      `requestAnimFrame(animate)`
+      `requestAnimationFrame(animate)`
       bunny.rotation += 0.1
       renderer.render stage
     end
-    `requestAnimFrame(animate)`
+    `requestAnimationFrame(animate)`
   end
 end
