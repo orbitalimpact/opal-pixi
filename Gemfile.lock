@@ -2,22 +2,22 @@ PATH
   remote: .
   specs:
     opal-pixi (0.0.1)
-      opal (~> 0.6.0)
+      opal (~> 0.7.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     hike (1.2.3)
-    json (1.8.1)
-    multi_json (1.10.1)
-    opal (0.6.3)
-      source_map
-      sprockets
-    rack (1.6.0)
+    multi_json (1.11.2)
+    opal (0.7.2)
+      hike (~> 1.2)
+      sourcemap (~> 0.1.0)
+      sprockets (>= 2.2.3, < 3.0.0)
+      tilt (~> 1.4)
+    rack (1.6.4)
     rake (10.4.2)
-    source_map (3.0.1)
-      json
-    sprockets (2.12.3)
+    sourcemap (0.1.1)
+    sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
