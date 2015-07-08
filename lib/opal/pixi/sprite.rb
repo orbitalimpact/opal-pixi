@@ -22,5 +22,14 @@ module PIXI
     def position=(p)
       `self.position = p`
     end
+
+    def position()
+      `self.position`
+    end
+
+    def width()
+      `self.width`
+    end
+
   end
 end

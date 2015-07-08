@@ -15,5 +15,14 @@ module PIXI
     def view
       `self.view`
     end
+
+    def height
+      `self.height`
+    end
+
+    def width
+      `self.width`
+    end
+
   end
 end
