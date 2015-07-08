@@ -28,4 +28,14 @@ like Sprites (with texture) and all sorts of objects and collections thereof.
 
 And then you can get the view element from the renderer and add it to your dom.
 
-Sit back and watch :-)
+### Demo
+
+There is a small demo in the demo directory. To run it clone the repository,
+
+```
+cd demo
+bundle
+bundle exec rackup
+```
+
+and go to localhost:9292
