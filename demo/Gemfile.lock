@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    opal-pixi (0.0.1)
+    opal-pixi (0.1.0)
       opal (~> 0.7.0)
 
 GEM
