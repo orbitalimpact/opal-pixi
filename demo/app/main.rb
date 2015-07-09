@@ -21,10 +21,10 @@ class Game
     bunny.anchor   = PIXI::Point.new(0.5, 0.5)
     bunny.position = PIXI::Point.new(width / 2, height / 2)
 
-    # bunny.interactive = true
-    # bunny.on('mousedown') do
-    #   puts "mouse down"
-    # end
+    bunny.interactive = true
+    bunny.on('mousedown') do
+      puts "mouse down"
+    end
 
     stage.add_child(bunny)
 

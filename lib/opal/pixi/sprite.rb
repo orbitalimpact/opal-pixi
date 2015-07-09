@@ -16,6 +16,7 @@ module PIXI
 
     alias_native :anchor, :anchor, as: Point
     alias_native :rotation
+    alias_native :interactive=
     alias_native :position, :position, as: Point
 
     def on(event, &handler)
