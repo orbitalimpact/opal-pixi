@@ -1,4 +1,5 @@
 if RUBY_ENGINE == 'opal'
+  require 'native'
   require 'opal/pixi/container'
   require 'opal/pixi/web_gl_renderer'
   require 'opal/pixi/sprite'

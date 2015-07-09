@@ -1,5 +1,3 @@
-require 'native'
-
 module PIXI
   class Container #< `PIXI.Container`
     include Native

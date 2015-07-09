@@ -1,4 +1,3 @@
-require 'native'
 require 'opal/pixi/point'
 require 'pp'
 

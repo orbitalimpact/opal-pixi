@@ -1,5 +1,3 @@
-require 'native'
-
 module PIXI
   class Point
     include Native

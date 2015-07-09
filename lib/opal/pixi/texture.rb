@@ -1,4 +1,3 @@
-require 'native'
 module PIXI
   class Texture
 
