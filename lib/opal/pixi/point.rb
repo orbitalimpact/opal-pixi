@@ -14,9 +14,7 @@ module PIXI
     alias_native :x
     alias_native :y
 
-    def x=(_x)
-      `#@native.x = _x`
-    end
+    alias_native :x=
 
   end
 end

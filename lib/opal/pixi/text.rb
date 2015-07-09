@@ -14,13 +14,8 @@ module PIXI
     alias_native :width
     alias_native :position, :position, as: Point
 
-    def position=(p)
-      `#@native.position = #{p.to_n}`
-    end
-
-    def text=(t)
-      `#@native.text = t`
-    end
+    alias_native :position=
+    alias_native :text=
 
 
   end

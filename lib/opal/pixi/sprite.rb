@@ -18,21 +18,10 @@ module PIXI
     alias_native :rotation
     alias_native :interactive=
     alias_native :position, :position, as: Point
+    alias_native :on
+    alias_native :anchor=
+    alias_native :position=
+    alias_native :rotation=
 
-    def on(event, &handler)
-      `#@native.on(#{event}, #{handler.to_n})`
-    end
-
-    def anchor=(a)
-      `#@native.anchor = #{a.to_n}`
-    end
-
-    def position=(p)
-      `#@native.position = #{p.to_n}`
-    end
-
-    def rotation=(r)
-      `#@native.rotation = #{r.to_n}`
-    end
   end
 end
