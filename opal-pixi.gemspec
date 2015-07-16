@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.authors     = [ 'George D. Plymale II', 'Gabriel Rios' ]
   s.email       = [ 'gabrielfalcaorios@gmail.com']
   s.homepage    = 'http://github.com/orbitalimpact/opal-pixi'
-  s.summary     = [ 'Pixi wrapper for opal' ]
-  s.description = [ 'Pixi wrapper for opal' ]
+  s.summary     = 'Pixi wrapper for opal'
+  s.description = 'Pixi wrapper for opal'
 
   s.files         = `git ls-files`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
