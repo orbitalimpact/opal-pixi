@@ -1,0 +1,15 @@
+## Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+## Ignore editors, tools and such:
+.idea
+
+## Ignore demo's Gemfile.lock
+demo/Gemfile.lock
+*Gemfile.lock
+
+pkg
+build
