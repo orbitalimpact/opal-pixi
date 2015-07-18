@@ -1,17 +1,17 @@
+require 'opal/pixi/core/display/container'
 require 'opal/pixi/core/math/point'
 
 module PIXI
-  class Sprite
-    include Native
+  class Sprite #< Container
+    include PIXI::DisplayObject
 
-    def initialize(arg_hash = {}, &block)
-      @native = %x{
-        new PIXI.Sprite()
-      }
+    def initialize(native_or_texture)
+      if native?(native_or_texture)
+        super
+      else
+        super(`new PIXI.Sprite(#{native_or_texture.to_n})`)
+      end
     end
-
-    alias_native :anchor,      :anchor,     as: Point
-    alias_native :position,    :position,   as: Point
 
   end
 end

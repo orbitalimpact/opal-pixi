@@ -2,25 +2,18 @@ module PIXI
   class WebGLRenderer
     include Native
 
-    #def initialize(arg_hash = {}, &block)
-    def initialize(width, height, options)
-
-      %{
-        var options = {
-          backgroundColor: #{options[:background_color]}
-        }
-      }
-
-      @native = %x{
-        new PIXI.WebGLRenderer(width, height, { backgroundColor : 0x1099bb })
-      }
+    def initialize(w_or_native, height, options)
+      if native?(w_or_native)
+        super(w_or_native)
+      else
+        super(`new PIXI.WebGLRenderer(w_or_native, height , #{ options.to_n })`)
+      end
     end
 
+    alias_native :render
     alias_native :view
     alias_native :width
     alias_native :height
-    alias_native :children
-    alias_native :render
 
   end
 end

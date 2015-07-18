@@ -5,19 +5,15 @@
 require 'opal/pixi/core/display/display_object'
 
 module PIXI
-  class Container < DisplayObject
+  class Container #< DisplayObject
     include Native
+    include PIXI::DisplayObject
 
-    def initialize(arg_hash = {}, &block)
-      @native = %x{
-        new PIXI.Container()
-      }
+    def initialize
+      super(`new PIXI.Container()`)
     end
 
-    alias_native :width
-    alias_native :height
     alias_native :add_child, :addChild
-
   end
 end
 

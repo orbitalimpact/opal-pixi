@@ -4,14 +4,18 @@ require 'native'
 
 class Game
   include Native
+  @counter
+  @direction
+
   def initialize
     run
   end
 
   def run
-    # var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x1099bb});
-    #renderer = PIXI::WebGLRenderer.new 800, 600, { background_color: 0x1099bb }
-    renderer = PIXI::WebGLRenderer.new 400, 300, { background_color: 0x1099bb }
+    height = `window.innerHeight`
+    width =  `window.innerWidth`
+
+    renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x1099bb }
     body = Native(`window.document.body`)
     body.appendChild renderer.view
 
@@ -24,26 +28,39 @@ class Game
     # create a new Sprite using the texture
     bunny = PIXI::Sprite.new texture
 
-    # center the sprite's anchor point
+    # # center the sprite's anchor point
     bunny.anchor.x = 0.5
     bunny.anchor.y = 0.5
-    #bunny.anchor = PIXI::Point.new(0.5, 0.5)
 
     # move the sprite to the center of the screen
-    bunny.position.x = 200
-    bunny.position.y = 150
-    #bunny.position = PIXI::Point.new(200, 150)
+    bunny.position.x = width / 2
+    bunny.position.y = height / 2
+
+
+    bunny.scale = PIXI::Point.new(10,10)
 
     stage.add_child(bunny)
 
+    @counter = 0
     # start animating
     animate = Proc.new do
-      `requestAnimationFrame(animate)`
-      # just for fun, let's rotate mr rabbit a little
-      #  bunny.rotation += 0.1
-      # render the container
-      renderer.render stage
+        `requestAnimationFrame(animate)`
+        # just for fun, let's rotate mr rabbit a little
+        bunny.rotation += 0.1
+
+        fade_direction
+        bunny.alpha = @counter
+        #bunny.scale = @counter
+        # render the container
+        renderer.render stage
     end
+
     animate.call
+  end
+
+  def fade_direction
+    @direction = :- if @counter > 250
+    @direction = :+ if @counter < 1
+    @counter = @counter.send(@direction,1)
   end
 end
