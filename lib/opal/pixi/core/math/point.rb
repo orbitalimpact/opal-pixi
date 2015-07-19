@@ -15,5 +15,10 @@ module PIXI
     alias_native :y
     alias_native :y=
 
+    alias_native :clone
+    alias_native :copy
+    alias_native :equals
+    alias_native :set
+
   end
 end

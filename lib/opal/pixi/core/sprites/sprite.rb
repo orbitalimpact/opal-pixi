@@ -1,8 +1,10 @@
 require 'opal/pixi/core/display/container'
 require 'opal/pixi/core/math/point'
+require 'opal/pixi/core/textures/texture'
 
 module PIXI
   class Sprite #< Container
+    include Native
     include PIXI::DisplayObject
 
     def initialize(native_or_texture)
@@ -12,6 +14,24 @@ module PIXI
         super(`new PIXI.Sprite(#{native_or_texture.to_n})`)
       end
     end
+
+    alias_native :anchor, :anchor, as: Point
+    alias_native :anchor=
+    alias_native :tint
+    alias_native :tint=
+    alias_native :blend_mode, :blendMode
+    alias_native :blend_mode=
+    alias_native :shader
+    alias_native :shader=
+    alias_native :cached_tint, :cachedTint
+    alias_native :cached_tint=
+    alias_native :texture, :texture, as: Texture
+    alias_native :texture=
+
+    alias_native :width
+    alias_native :width=
+    alias_native :height
+    alias_native :height=
 
   end
 end
