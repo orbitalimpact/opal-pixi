@@ -1,6 +1,6 @@
 require 'opal/pixi/core/sprites/sprite'
 
-module PIXI
+module PIXI::Extras
   class MovieClip < PIXI::Sprite
     include Native
 

@@ -35,7 +35,7 @@ class SpriteSheet
       end
 
       # create a MovieClip (brings back memories from the days of Flash, right ?)
-      movie = PIXI::MovieClip.new(frames)
+      movie = PIXI::Extras::MovieClip.new(frames)
 
       # A MovieClip inherits all the properties of a PIXI sprite
       # so you can change its position, its anchor, mask it, etc
