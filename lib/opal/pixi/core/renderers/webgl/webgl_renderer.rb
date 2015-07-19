@@ -2,7 +2,7 @@ module PIXI
   class WebGLRenderer
     include Native
 
-    def initialize(w_or_native, height, options)
+    def initialize(w_or_native, height, options={})
       if native?(w_or_native)
         super(w_or_native)
       else
