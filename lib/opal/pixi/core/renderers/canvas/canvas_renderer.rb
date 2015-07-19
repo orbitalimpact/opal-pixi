@@ -1,12 +1,12 @@
 module PIXI
-  class WebGLRenderer
+  class CanvasRenderer
     include Native
 
     def initialize(w_or_native, height, options={})
       if native?(w_or_native)
         super(w_or_native)
       else
-        super(`new PIXI.WebGLRenderer(w_or_native, height, #{ options.to_n })`)
+        super(`new PIXI.CanvasRenderer(w_or_native, height, #{ options.to_n })`)
       end
     end
 

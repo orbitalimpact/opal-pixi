@@ -12,7 +12,8 @@ module PIXI
       #PIXI::Examples::Container.new
       #PIXI::Examples::SpriteSheet.new
       #PIXI::Examples::Click.new
-      PIXI::Examples::TilingSprite.new
+      #PIXI::Examples::TilingSprite.new
+      PIXI::Examples::Text.new
     end
 
   end
