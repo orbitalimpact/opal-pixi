@@ -10,5 +10,9 @@ module PIXI
       new(`PIXI.Texture.fromFrame(name)`)
     end
 
+    def self.from_video(name)
+      new(`PIXI.Texture.fromVideo(name)`)
+    end
+
   end
 end

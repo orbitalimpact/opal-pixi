@@ -1,9 +1,11 @@
 require 'opal/pixi/core/display/display_object'
+require 'opal/pixi/interaction/interactive_target'
 
 module PIXI
   class Container
     include Native
     include PIXI::DisplayObject
+    include PIXI::InteractiveTarget
 
     def initialize
       super(`new PIXI.Container()`)

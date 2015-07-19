@@ -15,8 +15,8 @@ class Text
     stage = PIXI::Container.new
 
     basic_text = PIXI::Text.new('Basic text in pixi')
-    basic_text.x = x_mid
-    basic_text.y = y_mid
+    basic_text.x = x_mid - basic_text.width / 2
+    basic_text.y = y_mid - basic_text.height / 2
 
     # add him to the stage
     stage.add_child(basic_text)
@@ -47,11 +47,12 @@ class Text
     # start animating
     count = 0
     animate = Proc.new do
-      count += 0.03
+      count += 0.01
       `requestAnimationFrame(animate)`
 
       # just for fun, let's rotate mr rabbit a little
-      rich_text.x = x_mid + (`Math.sin(count)` * (x_mid - rich_text.width))
+      rich_text.x = x_mid + (`Math.sin(count)` * (x_mid - rich_text.width/2))
+      rich_text.y = y_mid + (`Math.cos(count)` * (y_mid - rich_text.height/2))
       rich_text.rotation += 0.01
 
       # render the container

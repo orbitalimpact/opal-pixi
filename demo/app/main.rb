@@ -13,7 +13,10 @@ module PIXI
       #PIXI::Examples::SpriteSheet.new
       #PIXI::Examples::Click.new
       #PIXI::Examples::TilingSprite.new
-      PIXI::Examples::Text.new
+      #PIXI::Examples::Text.new
+      #PIXI::Examples::Graphics.new
+      #PIXI::Examples::Video.new
+      PIXI::Examples::RenderTexture.new
     end
 
   end
