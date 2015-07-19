@@ -117,7 +117,7 @@ module PIXI
 
       # start animating
       animate = Proc.new do
-        movie.rotation += 0.01;
+        movie.rotation += 0.01
         # render the container
         renderer.render stage
         `requestAnimationFrame(animate)`

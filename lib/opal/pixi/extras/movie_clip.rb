@@ -9,7 +9,7 @@ module PIXI
     end
 
     alias_native :animation_speed, :animationSpeed
-    alias_native :animation_speed=
+    alias_native :animation_speed=, :animationSpeed=
     alias_native :play
 
   end
