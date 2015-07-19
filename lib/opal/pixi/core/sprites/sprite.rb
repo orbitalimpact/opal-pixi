@@ -1,11 +1,13 @@
 require 'opal/pixi/core/display/container'
 require 'opal/pixi/core/math/point'
 require 'opal/pixi/core/textures/texture'
+require 'opal/pixi/interaction/interactive_target'
 
 module PIXI
   class Sprite #< Container
     include Native
     include PIXI::DisplayObject
+    include PIXI::InteractiveTarget
 
     def initialize(native_or_texture)
       if native?(native_or_texture)
