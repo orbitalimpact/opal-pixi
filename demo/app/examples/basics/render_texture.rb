@@ -23,29 +23,29 @@ class RenderTexture
     # create a texture from an image path
     texture = PIXI::Texture.from_image "assets/bunny.png"
 
-    10.times do |x|
-      10.times do |y|
+    5.times do |x|
+      5.times do |y|
         bunny = PIXI::Sprite.new texture
-        bunny.position = PIXI::Point.new(40 * x, 40 * y)
+        bunny.position = PIXI::Point.new(20 * x, 20 * y)
         bunny.rotation = `Math.random()` * (`Math.PI` * 2)
         container.add_child(bunny)
       end
     end
 
-    #container.position = PIXI::Point.new(width/2,height/2)
+    container.position = PIXI::Point.new(width/2,height/2)
 
-    rt = PIXI::RenderTexture.new(renderer, 300, 200, `PIXI.SCALE_MODES.LINEAR`, 0.1)
+    rt = PIXI::RenderTexture.new(renderer, 200, 200, `PIXI.SCALE_MODES.LINEAR`, 0.6)
 
     sprite = PIXI::Sprite.new(rt)
-    sprite.x = 450
-    sprite.y = 60
+    sprite.position = PIXI::Point.new(width/2,height/2+container.height)
+    sprite.pivot = PIXI::Point.new(15, 15)
     stage.add_child(sprite)
 
     # start animating
     animate = Proc.new do
         `requestAnimationFrame(animate)`
         # just for fun, let's rotate all the bunnies
-        #container.rotation += 0.01
+        sprite.rotation += 0.01
         rt.render(container)
 
         # render the container

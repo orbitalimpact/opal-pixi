@@ -16,7 +16,8 @@ module PIXI
       #PIXI::Examples::Text.new
       #PIXI::Examples::Graphics.new
       #PIXI::Examples::Video.new
-      PIXI::Examples::RenderTexture.new
+      #PIXI::Examples::RenderTexture.new
+      PIXI::Examples::TexturedMesh.new
     end
 
   end
