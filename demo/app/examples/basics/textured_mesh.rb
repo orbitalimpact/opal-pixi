@@ -14,18 +14,18 @@ class TexturedMesh
     #stage.position = PIXI::Point.new(width/2,height/2)
 
     # build a rope!
-    rope_length = 918 / 20
+    rope_length = 918 / 40
     rope_length = 45
 
     points = []
 
-    0.upto(25) do |x|
+    0.upto(45) do |x|
       points << PIXI::Point.new(x * rope_length, 0)
     end
 
     strip = PIXI::Mesh::Rope.new(PIXI::Texture.from_image('assets/snake.png'), points)
 
-    strip.position.x = -40
+    strip.position.x = -100
     strip.position.y = 300
 
     stage.add_child(strip)
@@ -43,14 +43,17 @@ class TexturedMesh
       g.clear
 
       g.line_style(2,0xffc2c2)
+
       g.move_to(points[0].x,points[0].y)
+
       points.each do |point|
-        #g.line_to(point.x,point.y)
+        g.line_to(point.x,point.y)
+        g.move_to(point.x,point.y)
       end
 
       points.each do |point|
         g.begin_fill(0xff0022)
-        g.draw_circle(point.x,point.y,10)
+        g.draw_circle(point.x,point.y,4)
         g.end_fill
       end
 

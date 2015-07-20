@@ -17,7 +17,8 @@ module PIXI
       #PIXI::Examples::Graphics.new
       #PIXI::Examples::Video.new
       #PIXI::Examples::RenderTexture.new
-      PIXI::Examples::TexturedMesh.new
+      #PIXI::Examples::TexturedMesh.new
+      PIXI::Examples::CustomFilter.new
     end
 
   end

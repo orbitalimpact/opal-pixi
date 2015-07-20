@@ -9,6 +9,10 @@ module PIXI
     include PIXI::DisplayObject
     include PIXI::InteractiveTarget
 
+    def self.from_image(name)
+      new(`PIXI.Sprite.fromImage(name)`)
+    end
+
     def initialize(native_or_texture)
       if native?(native_or_texture)
         super

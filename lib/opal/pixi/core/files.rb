@@ -3,6 +3,7 @@
 
 require 'opal/pixi/core/display/container'
 require 'opal/pixi/core/display/display_object'
+require 'opal/pixi/core/renderers/webgl/filters/abstract_filter'
 require 'opal/pixi/core/renderers/webgl/webgl_renderer'
 #require 'opal/pixi/core/renderers/system_renderer'
 require 'opal/pixi/core/graphics/graphics'
