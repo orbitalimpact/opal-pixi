@@ -11,6 +11,7 @@ module PIXI
     end
 
     alias_native :render
+    alias_native :destroy
     alias_native :view
     alias_native :width
     alias_native :height

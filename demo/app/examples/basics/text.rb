@@ -1,15 +1,15 @@
 module PIXI::Examples
 
-class Text
-  def initialize
+class Text < PIXI::Examples::Base
+  def initialize(menu, renderer)
     width =  `window.innerWidth`
     height = `window.innerHeight`
     x_mid = width / 2
     y_mid = height / 2
 
-    renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x66FF99 }
-    body = Native(`window.document.body`)
-    body.appendChild renderer.view
+    # renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x66FF99 }
+    # body = Native(`window.document.body`)
+    # body.appendChild renderer.view
 
     # create the root of the scene graph
     stage = PIXI::Container.new
@@ -50,7 +50,7 @@ class Text
       count += 0.01
       `requestAnimationFrame(animate)`
 
-      # just for fun, let's rotate mr rabbit a little
+      # just for fun, let's rotate 'le text' a little
       rich_text.x = x_mid + (`Math.sin(count)` * (x_mid - rich_text.width/2))
       rich_text.y = y_mid + (`Math.cos(count)` * (y_mid - rich_text.height/2))
       rich_text.rotation += 0.01
@@ -58,6 +58,9 @@ class Text
       # render the container
       renderer.render stage
     end
+
+    # add the menu
+    stage.add_child(menu)
 
     animate.call
   end

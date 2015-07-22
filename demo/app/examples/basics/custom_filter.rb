@@ -1,40 +1,31 @@
-
 module PIXI::Examples
 
-  # function CustomFilter(fragmentSource)
-  # {
-  #     PIXI.AbstractFilter.call(this,
-  #         // vertex shader
-  #         null,
-  #         // fragment shader
-  #         fragmentSource,
-  #         // set the uniforms
-  #         {
-  #             customUniform : {type : '1f', value : 0}
-  #         }
-  #     );
-  # }
-  #
-  # CustomFilter.prototype = Object.create(PIXI.AbstractFilter.prototype);
-  # CustomFilter.prototype.constructor = CustomFilter;
-
-
-class CustomFilter
-  def initialize
+class CustomFilter < PIXI::Examples::Base
+  def initialize(menu, renderer)
     height = `window.innerHeight`
     width =  `window.innerWidth`
 
-    renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x000000 }
-    body = Native(`window.document.body`)
-    body.appendChild renderer.view
+    # renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x000000 }
+    # body = Native(`window.document.body`)
+    # body.appendChild renderer.view
 
     # create the root of the scene graph
     stage = PIXI::Container.new
+
     container = PIXI::Container.new
 
     class ACustomFilter < PIXI::AbstractFilter
       def initialize(fragmentSource)
-        super(`null`,fragmentSource, { 'customUniform' => {'type' => '1f', 'value' => 0} } )
+        # vertex shader
+        shader = `null`
+        # set the uniforms
+        uniforms = {
+          'customUniform' => {
+            'type' => '1f',
+            'value' => 10
+          }
+        }
+        super(shader,fragmentSource, uniforms )
       end
     end
 
@@ -64,9 +55,16 @@ class CustomFilter
         animate.call
     end
 
+    # add the menu
+    stage.add_child(menu)
+
     `PIXI.loader.add('shader','assets/shader.frag')`
     `PIXI.loader.once('complete',on_assets_loaded)`
     `PIXI.loader.load()`
+
+    @destroy = Proc.new {
+
+    }
 
   end
 end

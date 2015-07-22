@@ -1,13 +1,13 @@
 module PIXI::Examples
 
-class Video
-  def initialize
+class Video < PIXI::Examples::Base
+  def initialize(menu, renderer)
     height = `window.innerHeight`
     width =  `window.innerWidth`
 
-    renderer = PIXI::WebGLRenderer.new width, height, { "transparent" => true }
-    body = Native(`window.document.body`)
-    body.appendChild renderer.view
+    # renderer = PIXI::WebGLRenderer.new width, height, { "transparent" => true }
+    # body = Native(`window.document.body`)
+    # body.appendChild renderer.view
 
     # create the root of the scene graph
     stage = PIXI::Container.new
@@ -32,8 +32,19 @@ class Video
         renderer.render stage
     end
 
+    # add the menu
+    stage.add_child(menu)
+
     animate.call
+
+    @destroy = Proc.new {
+      `cancelAnimationFrame(animate)`
+      # animate = nil
+      # stage.destroy
+      # video_sprite.destroy
+    }
   end
+
 end
 
 end

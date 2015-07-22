@@ -1,14 +1,13 @@
 module PIXI::Examples
 
-class TilingSprite
-  def initialize
-
+class TilingSprite < PIXI::Examples::Base
+  def initialize(menu, renderer)
     height = `window.innerHeight`
     width =  `window.innerWidth`
 
-    renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x66FF99 }
-    body = Native(`window.document.body`)
-    body.appendChild renderer.view
+    # renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x66FF99 }
+    # body = Native(`window.document.body`)
+    # body.appendChild renderer.view
 
     # create the root of the scene graph
     stage = PIXI::Container.new
@@ -42,7 +41,15 @@ class TilingSprite
       `requestAnimationFrame(animate)`
     end
 
+    # add the menu
+    stage.add_child(menu)
+
     animate.call
+
+    @destroy = Proc.new {
+      # animate = nil
+      # stage.destroy
+    }
 
   end
 end

@@ -9,8 +9,12 @@ module PIXI
     include PIXI::DisplayObject
     include PIXI::InteractiveTarget
 
-    def self.from_image(name)
-      new(`PIXI.Sprite.fromImage(name)`)
+    def self.from_image(imageId, crossorigin=false, scaleMode='')
+      new(`PIXI.Sprite.fromImage(imageId, crossorigin, scaleMode)`)
+    end
+
+    def self.from_frame(frameId)
+      new(`PIXI.Sprite.fromFrame(frameId)`)
     end
 
     def initialize(native_or_texture)

@@ -1,14 +1,13 @@
 module PIXI::Examples
 
-class SpriteSheet
-  def initialize
-
+class SpriteSheet < PIXI::Examples::Base
+  def initialize(menu, renderer)
     height = `window.innerHeight`
     width =  `window.innerWidth`
 
-    renderer = PIXI::WebGLRenderer.new width, height
-    body = Native(`window.document.body`)
-    body.appendChild renderer.view
+    # renderer = PIXI::WebGLRenderer.new width, height
+    # body = Native(`window.document.body`)
+    # body.appendChild renderer.view
 
     # create the root of the scene graph
     stage = PIXI::Container.new
@@ -46,10 +45,17 @@ class SpriteSheet
 
       stage.add_child(movie)
 
+      # add the menu
+      stage.add_child(menu)
+
       animate.call
     end
 
     `PIXI.loader.add('assets/fighter.json').load(on_assets_loaded)`
+
+    @destroy = Proc.new {
+
+    }
 
   end
 end

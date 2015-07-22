@@ -1,13 +1,13 @@
 module PIXI::Examples
 
-class Basic
-  def initialize
+class Basic < PIXI::Examples::Base
+  def initialize(menu, renderer)
     height = `window.innerHeight`
     width =  `window.innerWidth`
 
-    renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x66FF99 }
-    body = Native(`window.document.body`)
-    body.appendChild renderer.view
+    # renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x66FF99 }
+    # body = Native(`window.document.body`)
+    # body.appendChild renderer.view
 
     # create the root of the scene graph
     stage = PIXI::Container.new
@@ -34,16 +34,25 @@ class Basic
 
     # start animating
     animate = Proc.new do
-        `requestAnimationFrame(animate)`
-        # just for fun, let's rotate mr rabbit a little
-        bunny.rotation += 0.01
+      `requestAnimationFrame(animate)`
+      # just for fun, let's rotate mr rabbit a little
+      bunny.rotation += 0.01
 
-        # render the container
-        renderer.render stage
+      # render the container
+      renderer.render stage
+
     end
 
+    # add the menu
+    stage.add_child(menu)
+
     animate.call
+
+    @destroy = Proc.new do
+    end
+
   end
+
 end
 
 end

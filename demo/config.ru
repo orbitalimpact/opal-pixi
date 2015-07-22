@@ -6,7 +6,7 @@ opal = Opal::Server.new { |s|
   s.append_path 'app'
   s.append_path 'assets'
 
-  s.main = 'main'
+  s.main = 'demo'
 }
 
 # map opal.source_maps.prefix do

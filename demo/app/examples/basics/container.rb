@@ -1,13 +1,13 @@
 module PIXI::Examples
 
-class Container
-  def initialize
+class Container < PIXI::Examples::Base
+  def initialize(menu, renderer)
     height = `window.innerHeight`
     width =  `window.innerWidth`
 
-    renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x66FF99 }
-    body = Native(`window.document.body`)
-    body.appendChild renderer.view
+    # renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x66FF99 }
+    # body = Native(`window.document.body`)
+    # body.appendChild renderer.view
 
     # create the root of the scene graph
     stage = PIXI::Container.new
@@ -43,7 +43,15 @@ class Container
         renderer.render stage
     end
 
+    # add the menu
+    stage.add_child(menu)
+
     animate.call
+
+    @destroy = Proc.new {
+
+    }
+    
   end
 end
 

@@ -1,14 +1,13 @@
 module PIXI::Examples
 
-
-class Click
-  def initialize
+class Click < PIXI::Examples::Base
+  def initialize(menu, renderer)
     height = `window.innerHeight`
     width =  `window.innerWidth`
 
-    renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x1099bb }
-    body = Native(`window.document.body`)
-    body.appendChild renderer.view
+    # renderer = PIXI::WebGLRenderer.new width, height, { "backgroundColor" => 0x1099bb }
+    # body = Native(`window.document.body`)
+    # body.appendChild renderer.view
 
     # create the root of the scene graph
     stage = PIXI::Container.new
@@ -35,12 +34,12 @@ class Click
 
     # start animating
     animate = Proc.new do
-        `requestAnimationFrame(animate)`
-        # just for fun, let's rotate mr rabbit a little
-        bunny.rotation += 0.01
+      `requestAnimationFrame(animate)`
+      # just for fun, let's rotate mr rabbit a little
+      bunny.rotation += 0.01
 
-        # render the container
-        renderer.render stage
+      # render the container
+      renderer.render stage
     end
 
     onDown = Proc.new do
@@ -52,8 +51,17 @@ class Click
     bunny.on('mousedown', onDown)
     bunny.on('touchstart', onDown)
 
+    # add the menu
+    stage.add_child(menu)
+
     animate.call
+
+    @destroy = Proc.new do
+      animate = nil
+    end
+
   end
+
 end
 
 end

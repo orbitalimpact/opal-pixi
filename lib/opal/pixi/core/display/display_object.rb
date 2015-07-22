@@ -38,5 +38,7 @@ module PIXI
     alias_native :filters
     alias_native :filters=
 
+    alias_native :destroy
+
   end
 end
