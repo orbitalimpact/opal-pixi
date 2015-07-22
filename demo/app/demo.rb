@@ -37,7 +37,7 @@ module PIXI
 
       current = nil
       show_content = Proc.new do |item|
-        current.destroy if current
+        #current.destroy if current
         current = item.new(menu, renderer)
       end
 
@@ -57,7 +57,7 @@ module PIXI
       examples.each_with_index do |item, index|
         menu_item = PIXI::Text.new(item.name.split('::').last.downcase, style)
         menu_item.x = 10
-        menu_item.y = 30 * index
+        menu_item.y = 50 * index
         menu_item.interactive = true
         menu_item.on('mousedown') do
           show_content.call(item)
