@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version      = Opal::PIXI::VERSION
   s.authors      = ['George Plymale', 'Keith Salisbury']
   s.email        = ['george@orbitalimpact.com&keith.salisbury@alliants.com']
-  s.homepage     = 'http://github.com/globalkeith/opal-pixi'
+  s.homepage     = 'http://github.com/orbitalimpact/opal-pixi'
   s.summary      = 'Opal access to pixi'
   s.description  = 'Opal DOM library for pixi'
 

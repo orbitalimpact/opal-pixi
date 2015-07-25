@@ -4,24 +4,24 @@
 
 The goal of this project is to completely wrap the Pixi API in Opal, to allow developers to write HTML5 and WebGL rendering from Ruby.
 
-If you have not heard of Phaser, check out these links:
+If you have not heard of Pixi, check out these links:
 
 * Pixi: https://github.com/GoodBoyDigital/pixi.js/
 * Pixi Examples: https://github.com/pixijs/examples
 
-Also, to get examples of opal-pixi in action, check out the [opal-pixi-examples repository](https://github.com/globalkeiht/opal-pixi-examples).
+Also, to get examples of opal-pixi in action, check out the [opal-pixi-examples repository](https://github.com/ktec/opal-pixi-examples).
 
 ## Cloning this repository
 
 ```
-$ git clone https://github.com/globalkeith/opal-pixi
+$ git clone https://github.com/orbitalimpact/opal-pixi
 ```
 
 ## Getting involved
 
 To contribute to this project, follow the steps below.
 
-1. Fork the repo ( https://github.com/globalkeith/opal-pixi/fork )
+1. Fork the repo ( https://github.com/orbitalimpact/opal-pixi/fork )
 2. Create your feature branch (`git checkout -b new-branch`)
 3. Commit your changes (`git commit -am 'description of commit'`)
 4. Push to the branch (`git push origin new-branch`)
