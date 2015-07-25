@@ -12,6 +12,7 @@ module PIXI
     alias_native :line_width, :lineWidth
     alias_native :line_color, :lineColor
     alias_native :tint
+    alias_native :blend_mode, :blendMode
     alias_native :is_mask, :isMask
     alias_native :bounds_padding, :boundsPadding
     alias_native :clone

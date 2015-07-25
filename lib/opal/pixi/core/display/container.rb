@@ -11,6 +11,8 @@ module PIXI
       super(`new PIXI.Container()`)
     end
 
+    alias_native :children
+
     alias_native :width
     alias_native :width=
     alias_native :height

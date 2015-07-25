@@ -2,7 +2,7 @@ module PIXI
   class Point
     include Native
 
-    def self.new(x_or_native , y)
+    def self.new(x_or_native, y)
       if native?(x_or_native)
         super(x_or_native)
       else
