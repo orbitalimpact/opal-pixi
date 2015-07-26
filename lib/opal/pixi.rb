@@ -1,11 +1,5 @@
 if RUBY_ENGINE == 'opal'
-  require 'opal/pixi/base'
-  require 'opal/pixi/container'
-  require 'opal/pixi/display_object'
-  require 'opal/pixi/web_gl_renderer'
-  require 'opal/pixi/sprite'
-  require 'opal/pixi/point'
-  require 'opal/pixi/texture'
+  require 'opal/pixi/setup'
 else
   require 'opal'
   require 'opal/pixi/version'
