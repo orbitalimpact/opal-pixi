@@ -1,12 +1,40 @@
+require 'native'
+require './base'
+require './display_object'
+
 module PIXI
-  class Container #< `PIXI.Container`
+  class Container < PIXI::DisplayObject
     include Native
 
-    def initialize
-      super(`new PIXI.Container()`)
+    %x{
+      self._proto = window.PIXI.Container.prototype, def = self._proto;
+              window.PIXI.Container.prototype._klass = self;
+    }
+
+    def self.new(color)
+      `new window.PIXI.Container(color)`
     end
 
-    alias_native :add_child, :addChild
+    def add_child(child)
+      `self.addChild(child)`
+    end
+
+    def x
+      `self.position.x`
+    end
+
+    def x=(x)
+      `self.position.x = x`
+    end
+
+    def y
+      `self.position.y`
+    end
+
+    def y=(y)
+      `self.position.y = y`
+    end
+
 
   end
 end

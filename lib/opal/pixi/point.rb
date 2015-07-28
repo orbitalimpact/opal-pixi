@@ -1,14 +1,18 @@
+require './base'
+
 module PIXI
   class Point
     include Native
 
-    def self.new(x_or_native , y)
-      if native?(x_or_native)
-        super(x_or_native)
-      else
-        super(`new PIXI.Point(x_or_native, y)`)
-      end
+    %x{
+      self._proto = window.PIXI.Point.prototype, def = self._proto;
+              window.PIXI.Point.prototype._klass = self;
+    }
+
+    def self.new(x,y)
+      `new window.PIXI.Point(x,y)`
     end
+
 
     alias_native :set
     alias_native :x

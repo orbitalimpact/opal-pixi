@@ -1,13 +1,24 @@
+#require './base'
+
 module PIXI
-  class WebGLRenderer  #< `PIXI.WebGLRenderer`
+  class WebGLRenderer
     include Native
 
-    def initialize(w_or_native, height, options)
-      if native?(w_or_native)
-        super(w_or_native)
-      else
-        super(`new PIXI.WebGLRenderer(w_or_native, height , #{ options.to_n })`)
-      end
+    %x{
+      self._proto = window.PIXI.WebGLRenderer.prototype, def = self._proto;
+              window.PIXI.WebGLRenderer.prototype._klass = self;
+    }
+
+    def self.new(width, height, options)
+      %x{new window.PIXI.WebGLRenderer(width, height, { backgroundColor : #{options[:background_color]} })}
+    end
+
+    def render(object)
+      `self.render(object)`
+    end
+
+    def destroy(removeView)
+      `self.destroy(removeView)`
     end
 
     alias_native :render

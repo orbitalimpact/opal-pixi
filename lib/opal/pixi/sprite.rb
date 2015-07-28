@@ -1,17 +1,8 @@
-require 'opal/pixi/point'
-require 'pp'
+require './base'
 
 module PIXI
-  class Sprite
+  class Sprite < PIXI::DisplayObject
     include Native
-
-    def initialize(native_or_texture)
-      if native?(native_or_texture)
-        super
-      else
-        super `new PIXI.Sprite(#{native_or_texture.to_n})`
-      end
-    end
 
 
     alias_native :anchor, :anchor, as: Point
@@ -22,6 +13,15 @@ module PIXI
     alias_native :anchor=
     alias_native :position=
     alias_native :rotation=
+
+    %x{
+      self._proto = window.PIXI.Sprite.prototype, def = self._proto;
+              window.PIXI.Sprite.prototype._klass = self;
+    }
+
+    def self.new(texture)
+      `new window.PIXI.Sprite(texture)`
+    end
 
   end
 end
